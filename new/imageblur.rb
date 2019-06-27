@@ -1,4 +1,4 @@
-
+require 'pry'
 class Image
   def initialize (picture)
     @picture = picture
@@ -13,8 +13,7 @@ class Image
       @picture.each_with_index do |row, row_number|
         row.each_with_index do |item, col_number|
           if item == 1
-            puts @column_lengh 
-            working_picture[row_number][col_number] = 1 #@instance1 & @instance2
+            working_picture[row_number][col_number] = 1
             working_picture[row_number - 1][col_number] = 1 unless row_number <= 0 #up
             working_picture[row_number + 1][col_number] = 1 unless row_number >= @row_length #down
             working_picture[row_number][col_number - 1] = 1 unless col_number <= 0 #left
