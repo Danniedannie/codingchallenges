@@ -1,3 +1,6 @@
+require 'pry'
+
+
 class LinkedListNode
   attr_accessor :value, :next_node
 
@@ -36,6 +39,7 @@ def reverse_list(list_item)
   while list_item
     stack.push(list_item.value)
     list_item = list_item.next_node
+    binding.pry
   end
 
   stack.data
