@@ -20,38 +20,23 @@ def print_values(list_node)
   end
 end
 
-class Stack
-  attr_reader :data
-
-  def initialize
-    @data = nil 
+ def reverse_list(list_item, previous=nil)
+   
+  if list_item
+    start = list_item.next_node
+    list_item.next_node = previous 
+    reverse_list(start, list_item)
+  else
+  previous   
   end
-
-  # Push an item onto the stack
-  def push(node)
-    @data = LinkedListNode.new(node, @data)
-  end
-end
-
-# def reverse_list(list_item)
-#   stack = Stack.new
-
-#   while list_item do
-#     stack.push(list_item.value)
-#     list_item = list_item.next_node
-#   end
-
-#   stack.data
-# end
+end 
 
 node1 = LinkedListNode.new(37)
 node2 = LinkedListNode.new(99, node1)
 node3 = LinkedListNode.new(12, node2)
 
+puts "original list"
 print_values(node3)
-
-puts "-------"
-
-revlist = reverse_list(node3)
-
-print_values(revlist)
+puts
+puts "reversed list"
+print_values(reverse_list(node3))
